@@ -141,6 +141,7 @@ class UserDetail:
         self.path = user_detail["Path"]
         self.user_id = user_detail["UserId"]
         self.user_name = user_detail["UserName"]
+        self.tags = user_detail.get("Tags")
 
         self.iam_data: dict[str, dict[Any, Any]] = {
             "groups": {},
@@ -314,4 +315,5 @@ class UserDetail:
             "customer_managed_policies": self.attached_customer_managed_policies_pointer_json,
             "aws_managed_policies": self.attached_aws_managed_policies_pointer_json,
             "is_excluded": self.is_excluded,
+            "tags": self.tags,
         }

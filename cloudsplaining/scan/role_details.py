@@ -342,6 +342,7 @@ class RoleDetail:
             "customer_managed_policies": self.attached_customer_managed_policies_pointer_json,
             "aws_managed_policies": self.attached_aws_managed_policies_pointer_json,
             "is_excluded": self.is_excluded,
+            "tags": self.tags,
         }
 
         if self.flag_trust_policies:

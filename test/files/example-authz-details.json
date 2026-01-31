@@ -15,7 +15,16 @@
           "PolicyName": "AdministratorAccess"
         }
       ],
-      "Tags": []
+      "Tags": [
+        {
+          "Key": "Environment",
+          "Value": "Production"
+        },
+        {
+          "Key": "Owner",
+          "Value": "SecurityTeam"
+        }
+      ]
     },
     {
       "Path": "/",
@@ -233,7 +242,16 @@
         }
       ],
       "AttachedManagedPolicies": [],
-      "Tags": [],
+      "Tags": [
+        {
+          "Key": "Application",
+          "Value": "DataProcessing"
+        },
+        {
+          "Key": "CostCenter",
+          "Value": "Engineering"
+        }
+      ],
       "RoleLastUsed": {}
     },
     {

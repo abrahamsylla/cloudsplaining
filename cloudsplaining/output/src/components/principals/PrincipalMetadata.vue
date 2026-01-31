@@ -13,6 +13,26 @@
             <dt class="col-sm-5">Created</dt>
             <dd class="col-sm-7">{{getPrincipalMetadata(principalId, principalType)['create_date']}}</dd>
 
+            <dt class="col-sm-5">Tags</dt>
+            <dd class="col-sm-7">
+                <template v-if="getPrincipalMetadata(principalId, principalType)['tags'] && getPrincipalMetadata(principalId, principalType)['tags'].length > 0">
+                    <b-button size="sm"
+                              v-b-toggle="`iam.${principalType}.${getPrincipalMetadata(principalId, principalType)['id']}.tags.collapse`">
+                        {{ getPrincipalMetadata(principalId, principalType)['tags'].length }}
+                    </b-button>
+                    <b-collapse
+                            v-bind:id="`iam.${principalType}.${getPrincipalMetadata(principalId, principalType)['id']}.tags.collapse`">
+                        <br>
+                        <ul v-bind:key="tag.Key" v-for="tag in getPrincipalMetadata(principalId, principalType)['tags']">
+                            <li class="text-break"><strong>{{ tag.Key }}:</strong> {{ tag.Value }}</li>
+                        </ul>
+                    </b-collapse>
+                </template>
+                <template v-else>
+                    <span class="text-muted">None</span>
+                </template>
+            </dd>
+
             <dt class="col-sm-5">Inline Policies</dt>
             <dd class="col-sm-7">
                 <b-button size="sm"
